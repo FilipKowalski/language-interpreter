@@ -1,0 +1,13 @@
+D:\Projects\Windows 8\InterpretScript\InterpretScript\bin\Debug\InterpretScript.exe.config
+D:\Projects\Windows 8\InterpretScript\InterpretScript\bin\Debug\InterpretScript.exe
+D:\Projects\Windows 8\InterpretScript\InterpretScript\bin\Debug\InterpretScript.pdb
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.csprojResolveAssemblyReference.cache
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\MainWindow.baml
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\MainWindow.g.cs
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\App.g.cs
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript_MarkupCompile.cache
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.g.resources
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.Properties.Resources.resources
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.csproj.GenerateResource.Cache
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.exe
+D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.pdb

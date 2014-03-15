@@ -1,0 +1,26 @@
+﻿<Window x:Class="InterpretScript.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InterpretScript" Height="600" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Background="#FF2D2D30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="2,0,2,0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock Text="Script" FontSize="30" Margin="20" HorizontalAlignment="Center" Foreground="White"/>
+                <RichTextBox Name="ScriptText" Background="#FF4C4C4F" Height="380" VerticalScrollBarVisibility="Visible" Block.TextAlignment="Justify" BorderBrush="Black" Foreground="White" SelectionBrush="Black"/>
+            </StackPanel>
+            <StackPanel Margin="2,0,2,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Result" FontSize="30" Margin="20" HorizontalAlignment="Center" Foreground="White"/>
+                <RichTextBox Name="ResultText" Background="#FF4C4C4F" Height="380" VerticalScrollBarVisibility="Visible" BorderBrush="Black" SelectionBrush="{x:Null}" IsEnabled="False"/>
+            </StackPanel>
+        </Grid>
+        <Button Name="RunScript" Grid.Row="1" Content="Run" Margin="200,20,200,20" FontSize="20" Click="RunScript_Click"/>
+    </Grid>
+</Window>
