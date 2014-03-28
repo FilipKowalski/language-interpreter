@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestIfStatement()
         {
             // arrange
             String input = "int p = 2; if(p == 2){p = 4}";
@@ -21,6 +21,27 @@ namespace UnitTestProject1
             // assert
             //int actual = Interpreter(input);
             //Assert.AreEqual(expected, actual, "Wrong interpreter response");
+        }
+
+        [TestMethod]
+        public void TestBoolValues()
+        {
+            String expected = "false;";
+            bool a = false;
+
+            Assert.AreEqual(expected, a);
+        }
+
+        [TestMethod]
+        public void TestForLoop()
+        {
+            String expected = "3";
+            int a = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                a++;
+            }
+            Assert.AreEqual(expected, a);
         }
     }
 }

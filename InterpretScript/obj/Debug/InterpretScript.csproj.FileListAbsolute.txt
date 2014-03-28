@@ -24,3 +24,16 @@ D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.Properties
 D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.csproj.GenerateResource.Cache
 D:\Projects\DSP\interpreter\InterpretScript\bin\Debug\InterpretScript.exe
 D:\Projects\DSP\interpreter\InterpretScript\bin\Debug\InterpretScript.pdb
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\bin\Debug\InterpretScript.exe.config
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.exe
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.pdb
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\bin\Debug\InterpretScript.exe
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\bin\Debug\InterpretScript.pdb
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.csprojResolveAssemblyReference.cache
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\MainWindow.baml
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\MainWindow.g.cs
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\App.g.cs
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript_MarkupCompile.cache
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.g.resources
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.Properties.Resources.resources
+C:\Users\Lemi-PC\Documents\Visual Studio 2013\Projects\interpreter\InterpretScript\obj\Debug\InterpretScript.csproj.GenerateResource.Cache
