@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="UnitTest1.cs" />
     <Page Include="MainWindow.xaml">
