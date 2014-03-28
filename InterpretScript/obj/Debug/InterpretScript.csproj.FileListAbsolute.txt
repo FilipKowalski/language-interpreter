@@ -11,3 +11,16 @@ D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.
 D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.csproj.GenerateResource.Cache
 D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.exe
 D:\Projects\Windows 8\InterpretScript\InterpretScript\obj\Debug\InterpretScript.pdb
+D:\Projects\DSP\interpreter\InterpretScript\bin\Debug\InterpretScript.exe.config
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.exe
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.pdb
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.csprojResolveAssemblyReference.cache
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\MainWindow.baml
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\MainWindow.g.cs
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\App.g.cs
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript_MarkupCompile.cache
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.g.resources
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.Properties.Resources.resources
+D:\Projects\DSP\interpreter\InterpretScript\obj\Debug\InterpretScript.csproj.GenerateResource.Cache
+D:\Projects\DSP\interpreter\InterpretScript\bin\Debug\InterpretScript.exe
+D:\Projects\DSP\interpreter\InterpretScript\bin\Debug\InterpretScript.pdb
