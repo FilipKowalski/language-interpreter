@@ -49,6 +49,11 @@ namespace InterpretScript
             get { return value; }
             set { this.value = value; }
         }
+
+        public string Name
+        {
+            get { return name; }
+        }
     }
 
     public class FLOAT
@@ -64,6 +69,11 @@ namespace InterpretScript
         {
             get { return value; }
             set { this.value = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
         }
 
         public static FLOAT operator +(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value + b.Value); }
