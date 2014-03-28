@@ -36,34 +36,39 @@ namespace InterpretScript
             this.Source = Source;
 
             // Compile source
-            INT a = new INT(5);
+            INT a = new INT("a", 5);
             listINT.Add(a);
-            INT b = new INT(5);
+            INT b = new INT("b", 5);
             listINT.Add(b);
-            a += b;
 
-            INT a1 = new INT(5);
+            INT a1 = new INT("a1", 5);
             listINT.Add(a1);
-            INT b1 = new INT(5);
+            INT b1 = new INT("b1", 5);
             listINT.Add(b1);
-            a1 -= b1;
 
-            INT a2 = new INT(5);
+            INT a2 = new INT("a2", 5);
             listINT.Add(a2);
-            INT b2 = new INT(5);
+            INT b2 = new INT("b2", 5);
             listINT.Add(b2);
-            a2 *= b2;
 
-            INT a3 = new INT(5);
+            INT a3 = new INT("a3", 5);
             listINT.Add(a3);
-            INT b3 = new INT(5);
+            INT b3 = new INT("b3", 5);
             listINT.Add(b3);
-            a3 /= b3;
 
-            this.Result = a.Value.ToString() + "\n";
-            this.Result += a1.Value.ToString() + "\n";
-            this.Result += a2.Value.ToString() + "\n";
-            this.Result += a3.Value.ToString() + "\n";
+            // +
+            listINT.Single(u => u.Name == "a").Value += listINT.Single(u => u.Name == "b").Value;
+            // -
+            listINT.Single(u => u.Name == "a1").Value -= listINT.Single(u => u.Name == "b1").Value;
+            // *
+            listINT.Single(u => u.Name == "a2").Value *= listINT.Single(u => u.Name == "b2").Value;
+            // /
+            listINT.Single(u => u.Name == "a3").Value /= listINT.Single(u => u.Name == "b3").Value;
+
+            this.Result = listINT.Single(u => u.Name == "a").Value.ToString() + "\n";
+            this.Result += listINT.Single(u => u.Name == "a1").Value.ToString() + "\n";
+            this.Result += listINT.Single(u => u.Name == "a2").Value.ToString() + "\n";
+            this.Result += listINT.Single(u => u.Name == "a3").Value.ToString() + "\n";
         }
     }
 }

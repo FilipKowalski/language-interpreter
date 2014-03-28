@@ -8,11 +8,12 @@ namespace InterpretScript
 {
     class INT
     {
+        private string name { get; set; }
         private int value { get; set; }
 
-        public INT() { this.value = 0; }
+        public INT(string name) { this.value = 0; this.name = name; }
 
-        public INT(int val) { this.value = val; }
+        public INT(string name, int val) { this.value = val; this.name = name; }
 
         public int Value
         {
@@ -20,22 +21,28 @@ namespace InterpretScript
             set { this.value = value; }
         }
 
-        public static INT operator +(INT a, INT b) { return new INT(a.Value + b.Value); }
+        public string Name
+        {
+            get { return name; }
+        }
 
-        public static INT operator -(INT a, INT b) { return new INT(a.Value - b.Value); }
+        public static INT operator +(INT a, INT b) { return new INT(a.name, a.Value + b.Value); }
 
-        public static INT operator *(INT a, INT b) { return new INT(a.Value * b.Value); }
+        public static INT operator -(INT a, INT b) { return new INT(a.name, a.Value - b.Value); }
 
-        public static INT operator/(INT a, INT b) { return new INT(a.Value / b.Value); }
+        public static INT operator *(INT a, INT b) { return new INT(a.name, a.Value * b.Value); }
+
+        public static INT operator/(INT a, INT b) { return new INT(a.name, a.Value / b.Value); }
     }
 
     public class BOOL
     {
+        private string name { get; set; }
         private bool value { get; set; }
 
-        public BOOL() { this.value = false; }
+        public BOOL(string name) { this.value = false; this.name = name; }
 
-        public BOOL(bool val) { this.value = val; }
+        public BOOL(string name, bool val) { this.value = val; this.name = name; }
 
         public bool Value
         {
@@ -46,11 +53,12 @@ namespace InterpretScript
 
     public class FLOAT
     {
+        private string name { get; set; }
         private float value { get; set; }
 
-        public FLOAT() { this.value = 0; }
+        public FLOAT(string name) { this.value = 0; this.name = name; }
 
-        public FLOAT(float val) { this.value = val; }
+        public FLOAT(string name, float val) { this.value = val; this.name = name; }
 
         public float Value
         {
@@ -58,12 +66,12 @@ namespace InterpretScript
             set { this.value = value; }
         }
 
-        public static FLOAT operator +(FLOAT a, FLOAT b) { return new FLOAT(a.Value + b.Value); }
+        public static FLOAT operator +(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value + b.Value); }
 
-        public static FLOAT operator -(FLOAT a, FLOAT b) { return new FLOAT(a.Value - b.Value); }
+        public static FLOAT operator -(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value - b.Value); }
 
-        public static FLOAT operator *(FLOAT a, FLOAT b) { return new FLOAT(a.Value * b.Value); }
+        public static FLOAT operator *(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value * b.Value); }
 
-        public static FLOAT operator/(FLOAT a, FLOAT b) { return new FLOAT(a.Value / b.Value); }
+        public static FLOAT operator/(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value / b.Value); }
     }
 }
