@@ -10,8 +10,13 @@ namespace InterpretScript
     {
         int value;
 
-        public Constant(int v) {
-            value = v;
+        public Constant(int value) {
+            this.value = value;
+        }
+
+        public int getValue()
+        {
+            return value;
         }
     }
 }

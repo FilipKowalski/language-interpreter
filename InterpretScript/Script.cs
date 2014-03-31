@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InterpretScript.interpreter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,13 @@ namespace InterpretScript
 
         public Script()
         {
+            /*
             this.Result = string.Empty;
             this.Source = string.Empty;
             this.listINT = new List<INT>();
             this.listBOOL = new List<BOOL>();
             this.listFLOAT = new List<FLOAT>();
+             */
         }
 
         public string GetResult
@@ -33,9 +36,10 @@ namespace InterpretScript
 
         public void RunScript(string Source)
         {
+            Expression exp = new Binary_operator('*', new Constant(2), new Constant(4));
+            this.Result = exp.getValue().ToString();
+            /*
             this.Source = Source;
-
-            // Compile source
             INT a = new INT("a", 5);
             listINT.Add(a);
             INT b = new INT("b", 5);
@@ -69,6 +73,7 @@ namespace InterpretScript
             this.Result += listINT.Single(u => u.Name == "a1").Value.ToString() + "\n";
             this.Result += listINT.Single(u => u.Name == "a2").Value.ToString() + "\n";
             this.Result += listINT.Single(u => u.Name == "a3").Value.ToString() + "\n";
+             */
         }
     }
 }
