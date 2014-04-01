@@ -57,6 +57,8 @@
     <Compile Include="interpreter\Constant.cs" />
     <Compile Include="interpreter\Expression.cs" />
     <Compile Include="interpreter\Binary_operator.cs" />
+    <Compile Include="interpreter\Variable.cs" />
+    <Compile Include="parser\Parser.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -100,9 +102,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parser\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

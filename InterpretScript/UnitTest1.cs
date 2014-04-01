@@ -11,7 +11,7 @@ namespace UnitTestProject1
         public void TestIfStatement()
         {
             // arrange
-            String input = "int p = 2; if(p == 2){p = 4}";
+            //String input = "int p = 2; if(p == 2){p = 4}";
             int p = 2;
             if (p == 2)
                 {
