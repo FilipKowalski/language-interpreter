@@ -54,10 +54,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="interpreter\Constant.cs" />
-    <Compile Include="interpreter\Expression.cs" />
-    <Compile Include="interpreter\Binary_operator.cs" />
-    <Compile Include="interpreter\Variable.cs" />
+    <Compile Include="advanced_interpreter\Assign.cs" />
+    <Compile Include="advanced_interpreter\Composition.cs" />
+    <Compile Include="advanced_interpreter\If.cs" />
+    <Compile Include="advanced_interpreter\Program.cs" />
+    <Compile Include="advanced_interpreter\Read.cs" />
+    <Compile Include="advanced_interpreter\Skip.cs" />
+    <Compile Include="advanced_interpreter\WhileLoop.cs" />
+    <Compile Include="advanced_interpreter\Write.cs" />
+    <Compile Include="base_interpreter\Constant.cs" />
+    <Compile Include="base_interpreter\Expression.cs" />
+    <Compile Include="base_interpreter\Binary_operator.cs" />
+    <Compile Include="base_interpreter\Variable.cs" />
     <Compile Include="parser\Parser.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />
@@ -93,6 +101,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
