@@ -66,6 +66,7 @@
     <Compile Include="base_interpreter\Expression.cs" />
     <Compile Include="base_interpreter\Binary_operator.cs" />
     <Compile Include="base_interpreter\Variable.cs" />
+    <Compile Include="parser\AdvancedParser.cs" />
     <Compile Include="parser\Parser.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />

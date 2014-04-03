@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace InterpretScript
 {
+    /// <summary>
+    /// Interfejs dla klas wyrażenia.
+    /// </summary>
     interface Expression
     {
         int getValue();

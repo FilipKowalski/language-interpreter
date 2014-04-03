@@ -23,6 +23,10 @@ namespace InterpretScript.interpreter
             this.dictionaryInt = dictionaryInt;
         }
 
+        /// <summary>
+        /// Zwraca wartość zmiennej ze słownika.
+        /// </summary>
+        /// <returns></returns>
         public int getValue()
         {
             return dictionaryInt[name];

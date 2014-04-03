@@ -18,27 +18,29 @@ namespace InterpretScript.parser
             removeWhiteSpaces();
         }
         
+        /// <summary>
+        /// Usuwa z wyrażenia białe spacje
+        /// </summary>
         private void removeWhiteSpaces()
         {
-            Regex.Replace(input, @"\s+", "");
-
+            input = input.Replace(" ", "");
         }
         
-        private bool isEndOfLine()
-        {
-            foreach (char c in input)
-                if (c.Equals(";"))
-                    return true;
-            
-            return false;
-        }
-
+        /// <summary>
+        /// Metoda wywoławcza (jedyna publiczna), która przetwarza wyrażenie
+        /// </summary>
+        /// <returns></returns>
         public Expression parseExpression()
         {
             Expression exp = parseSum(0);
             return exp;
         }
 
+        /// <summary>
+        /// Parsuje działanie dodawania i odejmowania, ale wcześniej sprawdza czy nie ma operacji mnożenia
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseSum(int position)
         {
             Expression exp = parseMult(position);
@@ -49,6 +51,11 @@ namespace InterpretScript.parser
             return exp;
         }
 
+        /// <summary>
+        /// Parsuje działanie mnożenia i dzielenia, ale wcześniej sprawdza z jaką wartością ma do czynienia
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseMult(int position)
         {
             Expression exp = parseTerm(position);
@@ -59,6 +66,11 @@ namespace InterpretScript.parser
             return exp;
         }
 
+        /// <summary>
+        /// Parsuje pojedyńczy element. To znaczy sprawdza czy jest cyfra, zmienną lub poczatkiem nawiasu.
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseTerm(int position)
         {
             char c = input[position];
@@ -72,6 +84,11 @@ namespace InterpretScript.parser
                 return null;
         }
 
+        /// <summary>
+        /// Zwraca wartość stałej liczbowej.
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseConstant(int position)
         {
             string s = "";
@@ -82,21 +99,32 @@ namespace InterpretScript.parser
             return new Constant(Int32.Parse(s));
         }
 
+        /// <summary>
+        /// Zwraca wartość zmiennej. 
+        /// UWAGA : Póki co nie działa poprawnie z powodu braku predefiniowanych zmiennych.
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseVariable(int position)
         {
             string s = "";
-            while (Char.IsLetter(input[position]))
+            while ((position < input.Length) && Char.IsLetter(input[position]))
             {
-                position++;
                 s += input[position];
+                position++;
             }
             return new Variable(s);
         }
 
+        /// <summary>
+        /// Odczytuje początek i koniec nawiasu.
+        /// UWAGA : Program źle oblicza koniec nawiasu z uwagi na to, że ma złe dane na temat wskaźnika.
+        /// </summary>
+        /// <param name="position">Aktualna pozycja wskaźnika</param>
+        /// <returns></returns>
         private Expression parseParen(int position)
         {
-            position++;
-            Expression exp = parseSum(position);
+            Expression exp = parseSum(position + 1);
             if(input[position + 1].Equals(')')) 
                 return exp;
 

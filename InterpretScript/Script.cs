@@ -30,14 +30,15 @@ namespace InterpretScript
         {
             this.Source = Source;
 
-            Dictionary<string, int> listInt = new Dictionary<string, int>();
-            listInt.Add("x", 1);
-            int value = listInt["x"];
+            //int value = listInt["x"];
 
-            Parser parser = new Parser(Source);
-            Expression exp = parser.parseExpression();
+            //Parser parser = new Parser(Source);
+            //Expression exp = parser.parseExpression();
 
-            this.Result = exp.getValue().ToString();
+            //this.Result = exp.getValue().ToString();
+
+            AdvancedParser advParser = new AdvancedParser(Source);
+            this.Result = "good";
         }
     }
 }

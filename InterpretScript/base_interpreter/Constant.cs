@@ -14,6 +14,10 @@ namespace InterpretScript
             this.value = value;
         }
 
+        /// <summary>
+        /// Zwraca wartość stałej.
+        /// </summary>
+        /// <returns></returns>
         public int getValue()
         {
             return value;

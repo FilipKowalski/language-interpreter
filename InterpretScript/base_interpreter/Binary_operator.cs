@@ -23,6 +23,10 @@ namespace InterpretScript.interpreter
             this.right = right;
         }
 
+        /// <summary>
+        /// Zwraca wartość operacji binarnej dla podanych wyrażeń.
+        /// </summary>
+        /// <returns></returns>
         public int getValue()
         {
             switch (symbol)
