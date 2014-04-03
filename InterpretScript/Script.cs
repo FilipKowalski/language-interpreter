@@ -32,11 +32,12 @@ namespace InterpretScript
 
             //int value = listInt["x"];
 
-            //Parser parser = new Parser(Source);
-            //Expression exp = parser.parseExpression();
-
-            //this.Result = exp.getValue().ToString();
-
+            /*
+             * Odpalcie sobie tą zakomentowaną część jeżeli checie przetestować wyrażenia typu 1+1, 3*2 itd.
+            Parser parser = new Parser(Source);
+            Expression exp = parser.parseExpression();
+            this.Result = exp.getValue().ToString();
+            */
             AdvancedParser advParser = new AdvancedParser(Source);
             this.Result = "good";
         }

@@ -50,5 +50,24 @@ namespace InterpretScript.parser
             }
             return false;
         }
+
+        /// <summary>
+        /// Przetwarza systemowe elementy takie jak if, for
+        /// </summary>
+        private void processSystemElements()
+        {
+            for (int i = 0; i < codeListArray.Length; i++)
+            {
+                string word = codeListArray[i];
+                if (word.Equals("if"))
+                {
+
+                }
+                else if (word.Equals("for"))
+                {
+
+                }
+            }
+        }
     }
 }
