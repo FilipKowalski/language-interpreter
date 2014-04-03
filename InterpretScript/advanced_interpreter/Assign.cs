@@ -10,6 +10,7 @@ namespace InterpretScript.advanced_interpreter
     {
         string var;
         Expression exp;
+        Dictionary<string, int> listInt = new Dictionary<string, int>();
 
         public Assign(string var, Expression exp)
         {
@@ -17,9 +18,10 @@ namespace InterpretScript.advanced_interpreter
             this.exp = exp;
         }
 
-        public void getValue()
+        public int getValue()
         {
-            throw new NotImplementedException();
+
+            return 0;
         }
     }
 }

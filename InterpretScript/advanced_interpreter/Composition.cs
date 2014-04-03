@@ -15,5 +15,10 @@ namespace InterpretScript.advanced_interpreter
             this.left = left;
             this.right = right;
         }
+
+        public int getValue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

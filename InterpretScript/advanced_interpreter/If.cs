@@ -16,5 +16,10 @@ namespace InterpretScript.advanced_interpreter
             this.branchThen = branchThen;
             this.branchElse = branchElse;
         }
+
+        public int getValue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

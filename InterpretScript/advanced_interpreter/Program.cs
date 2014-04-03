@@ -8,6 +8,6 @@ namespace InterpretScript.advanced_interpreter
 {
     interface Program
     {
-        void getValue();
+        int getValue();
     }
 }

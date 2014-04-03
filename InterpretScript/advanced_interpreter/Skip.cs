@@ -8,9 +8,14 @@ namespace InterpretScript.advanced_interpreter
 {
     class Skip : Program
     {
-        public void getValue()
+        public int getValue(Dictionary<string, int> listInt)
         {
+            return 0;
+        }
 
+        public int getValue()
+        {
+            throw new NotImplementedException();
         }
     }
 }

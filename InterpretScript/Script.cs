@@ -28,8 +28,12 @@ namespace InterpretScript
 
         public void RunScript(string Source)
         {
-            //Expression exp = new Binary_operator('+', new Constant(2), new Variable("x"));
             this.Source = Source;
+
+            Dictionary<string, int> listInt = new Dictionary<string, int>();
+            listInt.Add("x", 1);
+            int value = listInt["x"];
+
             Parser parser = new Parser(Source);
             Expression exp = parser.parseExpression();
 

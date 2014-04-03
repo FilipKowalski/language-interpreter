@@ -16,5 +16,10 @@ namespace InterpretScript.advanced_interpreter
             this.condition = condition;
             this.body = body;
         }
+
+        public int getValue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

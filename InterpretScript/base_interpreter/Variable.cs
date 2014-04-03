@@ -9,16 +9,23 @@ namespace InterpretScript.interpreter
     class Variable : Expression
     {
         string name;
+        Dictionary<string, int> dictionaryInt;
+        int value;
 
         public Variable(string name)
         {
             this.name = name;
         }
 
+        public Variable(string name, Dictionary<string, int> dictionaryInt)
+        {
+            this.name = name;
+            this.dictionaryInt = dictionaryInt;
+        }
+
         public int getValue()
         {
-            // pobrać ze słownika inta
-            return 0;
+            return dictionaryInt[name];
         }
     }
 }

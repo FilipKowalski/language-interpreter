@@ -15,7 +15,7 @@ namespace InterpretScript.advanced_interpreter
             this.var = var;
         }
 
-        public void getValue()
+        public int getValue()
         {
             throw new NotImplementedException();
         }
