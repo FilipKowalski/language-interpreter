@@ -30,7 +30,9 @@ namespace InterpretScript
         {
             this.Source = Source;
             this.Result = string.Empty;
-            List<Variables> ListVariables = new List<Variables>();
+            AdvancedParser2 Parser = new AdvancedParser2(Source);
+
+            /*List<Variables> ListVariables = new List<Variables>();
             ParserVariables parserVariables = new ParserVariables(ListVariables);
             parserVariables.ParseNewVariables("int a");
             parserVariables.ParseNewVariables("int b     =6");
@@ -63,7 +65,12 @@ namespace InterpretScript
                 }
 
                 this.Result += list.GetType() + " " + list.Name + " = " + list.Value + "\n";
-            }
+
+            
+
+
+            } */
+        this.Result = Parser.getResults();
         }
     }
 }
