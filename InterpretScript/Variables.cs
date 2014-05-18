@@ -6,82 +6,125 @@ using System.Threading.Tasks;
 
 namespace InterpretScript
 {
-    class INT
+    public abstract class Variables
     {
-        private string name { get; set; }
-        private int value { get; set; }
-
-        public INT(string name) { this.value = 0; this.name = name; }
-
-        public INT(string name, int val) { this.value = val; this.name = name; }
-
-        public int Value
-        {
-            get { return value; }
-            set { this.value = value; }
-        }
-
-        public string Name
-        {
-            get { return name; }
-        }
-
-        public static INT operator +(INT a, INT b) { return new INT(a.name, a.Value + b.Value); }
-
-        public static INT operator -(INT a, INT b) { return new INT(a.name, a.Value - b.Value); }
-
-        public static INT operator *(INT a, INT b) { return new INT(a.name, a.Value * b.Value); }
-
-        public static INT operator/(INT a, INT b) { return new INT(a.name, a.Value / b.Value); }
+        public abstract string Name { get; set; }
+        public abstract string Value { get; set; }
+        public abstract string GetType();
     }
 
-    public class BOOL
+    /// <summary>
+    /// Represents a 32-bit signed integer.
+    /// </summary>
+    class INT : Variables
     {
-        private string name { get; set; }
-        private bool value { get; set; }
+        public override string Name { get; set; }
+        public override string Value { get; set; }
 
-        public BOOL(string name) { this.value = false; this.name = name; }
-
-        public BOOL(string name, bool val) { this.value = val; this.name = name; }
-
-        public bool Value
-        {
-            get { return value; }
-            set { this.value = value; }
+        /// <summary>
+        /// Constructor INT
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns></returns>
+        public INT(string Name) 
+        { 
+            this.Name = Name;
+            this.Value = string.Empty;
         }
 
-        public string Name
+        /// <summary>
+        /// Constructor INT
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public INT(string Name, string Value) 
+        { 
+            this.Name = Name; 
+            this.Value = Value; 
+        }
+
+        public override string GetType()
         {
-            get { return name; }
+            return "int";
         }
     }
 
-    public class FLOAT
+    /// <summary>
+    /// Represents a Boolean value.
+    /// </summary>
+    public class BOOL : Variables
     {
-        private string name { get; set; }
-        private float value { get; set; }
+        public override string Name { get; set; }
+        public override string Value { get; set; }
 
-        public FLOAT(string name) { this.value = 0; this.name = name; }
-
-        public FLOAT(string name, float val) { this.value = val; this.name = name; }
-
-        public float Value
-        {
-            get { return value; }
-            set { this.value = value; }
+        public BOOL(string Name) 
+        { 
+            this.Name = Name;
+            this.Value = string.Empty;
         }
 
-        public string Name
-        {
-            get { return name; }
+        public BOOL(string Name, string Value) 
+        { 
+            this.Name = Name; 
+            this.Value = Value; 
         }
 
-        public static FLOAT operator +(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value + b.Value); }
+        public override string GetType()
+        {
+            return "bool";
+        }
+    }
 
-        public static FLOAT operator -(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value - b.Value); }
+    /// <summary>
+    /// Represents a double-precision floating-point number.
+    /// </summary>
+    public class DOUBLE : Variables
+    {
+        public override string Name { get; set; }
+        public override string Value { get; set; }
 
-        public static FLOAT operator *(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value * b.Value); }
+        public DOUBLE(string Name)
+        {
+            this.Name = Name;
+            this.Value = string.Empty;
+        }
 
-        public static FLOAT operator/(FLOAT a, FLOAT b) { return new FLOAT(a.name, a.Value / b.Value); }
+        public DOUBLE(string Name, string Value)
+        {
+            this.Name = Name;
+            this.Value = Value;
+        }
+
+        public override string GetType()
+        {
+            return "double";
+        }
+    }
+
+    /// <summary>
+    /// Represents a single-precision floating-point number.
+    /// </summary>
+    public class FLOAT : Variables
+    {
+        public override string Name { get; set; }
+        public override string Value { get; set; }
+
+        public FLOAT(string Name)
+        {
+            this.Name = Name;
+            this.Value = string.Empty;
+        }
+
+        public FLOAT(string Name, string Value)
+        {
+            this.Name = Name;
+            this.Value = Value;
+        }
+
+        public override string GetType()
+        {
+            return "float";
+        }
     }
 }

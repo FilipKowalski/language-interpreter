@@ -54,13 +54,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="advanced_interpreter2\ExpressionTypes.cs" />
+    <Compile Include="advanced_interpreter2\ForExpression.cs" />
+    <Compile Include="advanced_interpreter2\IfExpression.cs" />
+    <Compile Include="advanced_interpreter2\SemiColon.cs" />
+    <Compile Include="advanced_interpreter2\WhileExpression.cs" />
     <Compile Include="advanced_interpreter\Program.cs" />
     <Compile Include="base_interpreter\Constant.cs" />
     <Compile Include="base_interpreter\Expression.cs" />
     <Compile Include="base_interpreter\Binary_operator.cs" />
     <Compile Include="base_interpreter\Variable.cs" />
     <Compile Include="parser\AdvancedParser.cs" />
+    <Compile Include="parser\AdvancedParser2.cs" />
     <Compile Include="parser\Parser.cs" />
+    <Compile Include="parser\ParserVariables.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="UnitTest1.cs" />

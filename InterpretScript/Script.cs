@@ -29,17 +29,40 @@ namespace InterpretScript
         public void RunScript(string Source)
         {
             this.Source = Source;
+            this.Result = string.Empty;
+            List<Variables> ListVariables = new List<Variables>();
+            ParserVariables parserVariables = new ParserVariables(ListVariables);
+            parserVariables.Parsing("int a = 5+7");
+            parserVariables.Parsing("int b     =6");
+            parserVariables.Parsing("int c=7");
+            parserVariables.Parsing("int d");
+            parserVariables.Parsing("bool a = true");
+            parserVariables.Parsing("float bb = 0.01f");
+            parserVariables.Parsing("double dd = 0.1");
 
-            //int value = listInt["x"];
+            foreach(var list in ListVariables)
+            {
+                if (list.GetType() == "int")
+                {
+                    Parser parser = new Parser(list.Value);
+                    Expression exp = parser.parseExpression();
+                    list.Value = exp.getValue().ToString();
+                }
+                else if(list.GetType() == "bool")
+                {
 
-            /*
-            Odpalcie sobie tą zakomentowaną część jeżeli checie przetestować wyrażenia typu 1+1, 3*2 itd.
-            Parser parser = new Parser(Source);
-            Expression exp = parser.parseExpression();
-            this.Result = exp.getValue().ToString();
-            */
-            AdvancedParser2 advParser = new AdvancedParser2(Source);
-            this.Result = advParser.getResults();
+                }
+                else if(list.GetType() == "float")
+                {
+
+                }
+                else if(list.GetType() == "double")
+                {
+
+                }
+
+                this.Result += list.GetType() + " " + list.Name + " = " + list.Value + "\n";
+            }
         }
     }
 }
