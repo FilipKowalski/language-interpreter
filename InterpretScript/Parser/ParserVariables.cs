@@ -8,6 +8,19 @@ namespace InterpretScript.parser
 {
     class ParserVariables
     {
+        char[] Tab = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.' };
+
+        bool BelongsTo(char value)
+        {
+            for(int i=0; i<Tab.Length; i++)
+            {
+                if (value == Tab[i])
+                    return true;
+            }
+
+            return false;
+        }
+
         List<Variables> ListVariables { get; set; }
         public ParserVariables(List<Variables> ListVariables)
         {
@@ -71,6 +84,35 @@ namespace InterpretScript.parser
                             value = "1";
                         else
                             value = "0";
+                    }
+                    else
+                    {
+                        string valueTemp = string.Empty;
+                        string nameVar = string.Empty;
+
+                        for(int i=0; i<value.Length; i++)
+                        {
+                            if(!BelongsTo(value[i]))
+                            {
+                                nameVar += value[i];
+                            }
+                            else
+                            {
+                                if (nameVar != "" && nameVar != null)
+                                {
+                                    valueTemp += ListVariables.Single(k => k.Name == nameVar && k.GetType() == Type).Value;
+
+                                    nameVar = "";
+                                }
+                                valueTemp += value[i];
+                            }
+                        }
+                        if (nameVar != "" && nameVar != null)
+                        {
+                            valueTemp += ListVariables.Single(k => k.Name == nameVar && k.GetType() == Type).Value;
+                            nameVar = "";
+                        }
+                        value = valueTemp;
                     }
                 }
                 else

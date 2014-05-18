@@ -34,11 +34,13 @@ namespace InterpretScript
             ParserVariables parserVariables = new ParserVariables(ListVariables);
             parserVariables.Parsing("int a = 5+7");
             parserVariables.Parsing("int b     =6");
-            parserVariables.Parsing("int c=7");
-            parserVariables.Parsing("int d");
+            parserVariables.Parsing("int c=b");
+            parserVariables.Parsing("int a = c*b-1");
             parserVariables.Parsing("bool a = true");
-            parserVariables.Parsing("float bb = 0.01f");
+            parserVariables.Parsing("float bb = 0.01");
+            parserVariables.Parsing("float cc = bb*2");
             parserVariables.Parsing("double dd = 0.1");
+            parserVariables.Parsing("double ee = dd*3");
 
             foreach(var list in ListVariables)
             {
