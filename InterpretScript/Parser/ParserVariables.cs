@@ -27,7 +27,7 @@ namespace InterpretScript.parser
             this.ListVariables = ListVariables;
         }
 
-        public void Parsing(string input)
+        public void ParseNewVariables(string input)
         {
             string Type = string.Empty;
             int index = -1;
@@ -128,6 +128,72 @@ namespace InterpretScript.parser
                     case "double": ListVariables.Add(new DOUBLE(name, value)); break;
                 }
             }
+        }
+
+        public void ParseVariables(string input)
+        {
+            string Type = "int";
+            int index = 0;
+            string name = string.Empty;
+            string value = string.Empty;
+
+            // Szukanie do kiedy spacja
+            while (index < input.Length)
+            {
+                if (input[index] == (char)32)
+                    index++;
+                else
+                    break;
+             }
+
+             // Pobranie nazwy zmiennej
+             while (index < input.Length)
+             {
+                 if (input[index] == ' ' || input[index] == '=')
+                    break;
+                 name += input[index++];
+             }
+
+             index = input.IndexOf("=", index);
+             if (index != -1)
+             {
+                 index++;
+                 value = input.Substring(index).Replace(" ", "");
+                 if (Type == "bool")
+                 {
+                     
+                 }
+                 else
+                 {
+                     string valueTemp = string.Empty;
+                     string nameVar = string.Empty;
+
+                     for (int i = 0; i < value.Length; i++)
+                     {
+                         if (!BelongsTo(value[i]))
+                         {
+                             nameVar += value[i];
+                         }
+                         else
+                         {
+                             if (nameVar != "" && nameVar != null)
+                             {
+                                 valueTemp += ListVariables.Single(k => k.Name == nameVar && k.GetType() == Type).Value;
+
+                                 nameVar = "";
+                             }
+                             valueTemp += value[i];
+                         }
+                     }
+                     if (nameVar != "" && nameVar != null)
+                     {
+                         valueTemp += ListVariables.Single(k => k.Name == nameVar && k.GetType() == Type).Value;
+                         nameVar = "";
+                     }
+                     value = valueTemp;
+                 }
+             }
+             ListVariables.Single(k => k.Name == name && k.GetType() == Type).Value = value;
         }
     }
 }
