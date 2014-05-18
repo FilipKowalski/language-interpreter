@@ -10,10 +10,17 @@ namespace InterpretScript.parser
     class AdvancedParser2
     {
         string[] codeListArray = { };
+<<<<<<< HEAD
         string ifPattern = @"^\Aif\([A-Za-z0-9=;+\-<>!\x20]*\)\{[A-Za-z0-9=;+\-\x20]*\}";
         string forPattern = @"^\Afor\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
         string whilePattern = @"^\Awhile\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
         string expressionPattern = @"^[A-Za-z0-9=\s+\-]*;{1,1}";
+=======
+        string ifPattern = @"^\Aif\([A-Za-z0-9=;+-<>!]*\)\{[A-Za-z0-9=;+-]*\}";
+        string forPattern = @"^\Afor\([A-Za-z0-9=;+-<>!]*\)\{[A-Za-z0-9=;+-]*\}";
+        string whilePattern = @"^\Awhile\([A-Za-z0-9=;+-<>!]*\)\{[A-Za-z0-9=;+-]*\}";
+        string expressionPattern = @"^[A-Za-z0-9=]*;{1,1}";
+>>>>>>> c232d15f41676ab664e50d458ecc2a6616960321
 
         string input;
         string resultString = "";
