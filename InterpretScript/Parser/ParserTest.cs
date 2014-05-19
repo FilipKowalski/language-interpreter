@@ -57,6 +57,8 @@ namespace InterpretScript.parser
 
         public string GetSourceFor(string value)
         {
+            value = value.Replace("\r", "");
+            value = value.Replace("\n", "");
             System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), @"{.*}");
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
