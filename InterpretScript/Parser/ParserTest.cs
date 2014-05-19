@@ -15,7 +15,7 @@ namespace InterpretScript.parser
 
         public bool CheckFunctionFor(string value)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"for\(i=[0-9]+; i[<>][0-9]+; i[\+\-][\+\-]\)\{.*\}"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"for\([A-Za-z]+=[0-9]+; [A-Za-z][<>][0-9]+; [A-Za-z]+[\+\-][\+\-]\)"))
                 return true;
             else
                 return false;

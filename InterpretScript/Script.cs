@@ -31,7 +31,7 @@ namespace InterpretScript
         {
             string Result = string.Empty;
 
-            //AdvancedParser2 Parser = new AdvancedParser2(Source);
+            AdvancedParser2 Parser = new AdvancedParser2(Source);
             //List<string> ListString = Parser.GetListSource();
             
             ParserVariables parserVariables = new ParserVariables(ListVariables);
@@ -114,22 +114,18 @@ namespace InterpretScript
 
             List<Variables> ListVariables = new List<Variables>();
 
-            this.Result += RunCode("for(i=5; i>0; i--){printl(\"tekst\");}");
-            
-            //ParserVariables parserVariables = new ParserVariables(ListVariables);
+            this.Result += RunCode("for(i=0; i<5; i++) { printl(\"tekst\"); }");
 
-            //ParserTest ParserT = new ParserTest();
-            //List<string> ListString = new List<string>();
-            //ListString.Add("  int   a   =   5;");
-            //ListString.Add(" int   b   =   2;");
-            //ListString.Add("   printl  (  \"   tekst   \"  )  ;  ");
-            //ListString.Add("   printl  (  \"   a+b  \"  )  ;  ");
-            //ListString.Add("  printl   (  a   )  ;  ");
-            //ListString.Add("    a    =   6   ;  ");
-            //ListString.Add("printl  (  a  )    ;  ");
-            //ListString.Add("   a   =   a   +   b   ;  ");
-            //ListString.Add("  printl   (  a   )   ;");
-            //ListString.Add("for(i=0; i<3; i++){println(\"tekst\");}");
+            this.Result += RunCode("  int   a   =   5;");
+            this.Result += RunCode(" int   b   =   2;");
+            this.Result += RunCode("   printl  (  \"   tekst   \"  )  ;  ");
+            this.Result += RunCode("   printl  (  \"   a+b  \"  )  ;  ");
+            this.Result += RunCode("  printl   (  a   )  ;  ");
+            this.Result += RunCode("    a    =   6   ;  ");
+            this.Result += RunCode("printl  (  a  )    ;  ");
+            this.Result += RunCode("   a   =   a   +   b   ;  ");
+            this.Result += RunCode("  printl   (  a   )   ;");
+            this.Result += RunCode("for(i=3; i>0; i--){printl(\"tekst\");}");
         }
     }
 }
