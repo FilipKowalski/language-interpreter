@@ -11,12 +11,12 @@ namespace InterpretScript.parser
     {
         string[] codeListArray = { };
 
-        string ifPattern = @"^\Aif\([A-Za-z0-9=;+\-<>!\x20]*\)\{[A-Za-z0-9=;+\-\x20]*\}";
-        string forPattern = @"^\Afor\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
-        string whilePattern = @"^\Awhile\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
+        string ifPattern = @"^\Aif\([A-Za-z0-9=;+\-<>!\x20""\\]*\)\{[A-Za-z0-9=;+\-\x20""\\\(\)]*\}";
+        string forPattern = @"^\Afor\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
+        string whilePattern = @"^\Awhile\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
         string expressionPattern = @"^[A-Za-z0-9=\s+\-]*;{1,1}";
-        string printPattern = @"^\Aprint\([A-Za-z0-9=\s+\-""]*\)";
-        string printlPattern = @"^\Aprintl\([A-Za-z0-9=\s+\-""]*\)";
+        string printPattern = @"^\Aprint\([A-Za-z0-9=\s+\-""\\]*\)";
+        string printlPattern = @"^\Aprintl\([A-Za-z0-9=\s+\-""\\]*\)";
 
         string input;
         string resultString = "";
