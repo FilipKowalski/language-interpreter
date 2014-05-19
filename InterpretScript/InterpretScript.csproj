@@ -67,6 +67,7 @@
     <Compile Include="parser\AdvancedParser.cs" />
     <Compile Include="parser\AdvancedParser2.cs" />
     <Compile Include="parser\Parser.cs" />
+    <Compile Include="parser\ParserTest.cs" />
     <Compile Include="parser\ParserVariables.cs" />
     <Compile Include="Variables.cs" />
     <Compile Include="Script.cs" />

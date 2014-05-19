@@ -30,47 +30,66 @@ namespace InterpretScript
         {
             this.Source = Source;
             this.Result = string.Empty;
+
+            //this.Source = "int a = 5;\nint b = 2;\nint c = a + b;print(c);";
+
             AdvancedParser2 Parser = new AdvancedParser2(Source);
-
-            /*List<Variables> ListVariables = new List<Variables>();
+            //List<string> ListString = Parser.GetListSource();
+            List<Variables> ListVariables = new List<Variables>();
             ParserVariables parserVariables = new ParserVariables(ListVariables);
-            parserVariables.ParseNewVariables("int a");
-            parserVariables.ParseNewVariables("int b     =6");
-            parserVariables.ParseNewVariables("int c=b");
-            parserVariables.ParseNewVariables("float bb = 0.01");
-            parserVariables.ParseNewVariables("float cc = bb*2");
-            parserVariables.ParseNewVariables("double dd = 0.1");
-            parserVariables.ParseNewVariables("double ee = dd*3");
-            parserVariables.ParseVariables("a = b+c");
 
-            foreach(var list in ListVariables)
+            ParserTest ParserT = new ParserTest();
+            List<string> ListString = new List<string>();
+            ListString.Add("  int   a   =   5;");
+            ListString.Add(" int   b   =   2;");
+            ListString.Add("   printl  (  \"   tekst   \"  )  ;  ");
+            ListString.Add("   printl  (  \"   a+b  \"  )  ;  ");
+            ListString.Add("  printl   (  a   )  ;  ");
+            ListString.Add("    a    =   6   ;  ");
+            ListString.Add("printl  (  a  )    ;  ");
+            ListString.Add("   a   =   a   +   b   ;  ");
+            ListString.Add("  printl   (  a   )   ;");
+
+            foreach(var list in ListString)
             {
-                if (list.GetType() == "int")
+                if(ParserT.CheckPrintText(list))
                 {
-                    Parser parser = new Parser(list.Value);
+                    this.Result += ParserT.GetPrintText(list);
+                }
+                else if(ParserT.CheckPrintVariables(list))
+                {
+                    string varT = ParserT.GetPrintVariables(list);
+                    this.Result += ListVariables.Single(i => i.Name == varT).Value;
+                }
+                else if (ParserT.CheckPrintlText(list))
+                {
+                    this.Result += ParserT.GetPrintText(list)+"\n";
+                }
+                else if (ParserT.CheckPrintVariables(list))
+                {
+                    string varT = ParserT.GetPrintVariables(list);
+                    this.Result += ListVariables.Single(i => i.Name == varT).Value;
+                }
+                else if (ParserT.CheckPrintlVariables(list))
+                {
+                    string varT = ParserT.GetPrintVariables(list);
+                    this.Result += ListVariables.Single(i => i.Name == varT).Value+"\n";
+                }
+                else if(ParserT.CheckCreateVariable(list))
+                {
+                    parserVariables.ParseNewVariables(ParserT.GetCreateVariable(list));
+                }
+                else if(ParserT.CheckAttributeVariable(list))
+                {
+                    parserVariables.ParseVariables(ParserT.GetAttributeVariable(list));
+
+                    string getName = ParserT.GetNameVariable(list);
+
+                    Parser parser = new Parser(ListVariables.Single(i => i.Name == getName).Value);
                     Expression exp = parser.parseExpression();
-                    list.Value = exp.getValue().ToString();
+                    ListVariables.Single(i => i.Name == getName).Value = exp.getValue().ToString();
                 }
-                else if(list.GetType() == "bool")
-                {
-
-                }
-                else if(list.GetType() == "float")
-                {
-
-                }
-                else if(list.GetType() == "double")
-                {
-
-                }
-
-                this.Result += list.GetType() + " " + list.Name + " = " + list.Value + "\n";
-
-            
-
-
-            } */
-        this.Result = Parser.getResults();
+            }
         }
     }
 }
