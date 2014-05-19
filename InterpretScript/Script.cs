@@ -112,7 +112,11 @@ namespace InterpretScript
             this.Source = Source;
             this.Result = string.Empty;
 
-            List<Variables> ListVariables = new List<Variables>();
+            AdvancedParser2 Parser = new AdvancedParser2(Source);
+            this.Result = Parser.getResults();
+
+
+            /*List<Variables> ListVariables = new List<Variables>();
 
             this.Result += RunCode("for(i=0; i<5; i++) { printl(\"tekst\"); }");
 
@@ -125,7 +129,7 @@ namespace InterpretScript
             this.Result += RunCode("printl  (  a  )    ;  ");
             this.Result += RunCode("   a   =   a   +   b   ;  ");
             this.Result += RunCode("  printl   (  a   )   ;");
-            this.Result += RunCode("for(i=3; i>0; i--){printl(\"tekst\");}");
+            this.Result += RunCode("for(i=3; i>0; i--){printl(\"tekst\");}");*/
         }
     }
 }

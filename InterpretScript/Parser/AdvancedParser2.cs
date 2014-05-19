@@ -11,12 +11,12 @@ namespace InterpretScript.parser
     {
         string[] codeListArray = { };
 
-        string ifPattern = @"^\Aif\([A-Za-z0-9=;+\-<>!\x20""\\]*\)\{[A-Za-z0-9=;+\-\x20""\\\(\)]*\}";
-        string forPattern = @"^\Afor\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
-        string whilePattern = @"^\Awhile\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
-        string expressionPattern = @"^[A-Za-z0-9=\s+\-]*;{1,1}";
-        string printPattern = @"^\Aprint\([A-Za-z0-9=\s+\-""\\]*\);";
-        string printlPattern = @"^\Aprintl\([A-Za-z0-9=\s+\-""\\]*\);";
+        string ifPattern = @"^\A[\s]*if\([A-Za-z0-9=;+\-<>!\x20""\\]*\)\{[A-Za-z0-9=;+\-\x20""\\\(\)]*\}";
+        string forPattern = @"^\A[\s]*for\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
+        string whilePattern = @"^\A[\s]*while\([A-Za-z0-9=;+\-<>!\s""\\]*\)\{[A-Za-z0-9=;+\-\s""\\\(\)]*\}";
+        string expressionPattern = @"^[\s]*[A-Za-z0-9=\s+\-]*;{1,1}";
+        string printPattern = @"^\A[\s]*print\([A-Za-z0-9=\s+\-""\\]*\);{1,1}";
+        string printlPattern = @"^\A[\s]*printl\([A-Za-z0-9=\s+\-""\\]*\);{1,1}";
 
         string input;
         string resultString = "";
@@ -45,7 +45,7 @@ namespace InterpretScript.parser
                 {
                     System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), ifPattern);
                     Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value.Trim();
                     start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), ifPattern)[0].Length;
                     this.resultString += "if";
 
@@ -54,7 +54,7 @@ namespace InterpretScript.parser
                 {
                     System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), forPattern);
                     Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value.Trim();
                     start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), forPattern)[0].Length;
                     this.resultString += "for";
 
@@ -63,26 +63,16 @@ namespace InterpretScript.parser
                 {
                     System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), whilePattern);
                     Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value.Trim();
                     start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), whilePattern)[0].Length;
                     this.resultString += "while";
-
-                }
-                else if (System.Text.RegularExpressions.Regex.IsMatch(input.Substring(start, input.Length - start), expressionPattern))
-                {
-                    System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), expressionPattern);
-                    Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    int start2 = start + System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), expressionPattern)[0].Length;
-                    this.codeListArray[this.codeListArray.Length - 1] = input.Substring(start, start2 - start);
-                    start = start2;
-                    this.resultString += ";";
 
                 }
                 else if (System.Text.RegularExpressions.Regex.IsMatch(input.Substring(start, input.Length - start), printPattern))
                 {
                     System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), printPattern);
                     Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value.Trim();
                     start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), printPattern)[0].Length;
                     this.resultString += "print";
 
@@ -91,9 +81,19 @@ namespace InterpretScript.parser
                 {
                     System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), printlPattern);
                     Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
-                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value.Trim();
                     start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), printlPattern)[0].Length;
                     this.resultString += "printl";
+
+                }
+                else if (System.Text.RegularExpressions.Regex.IsMatch(input.Substring(start, input.Length - start), expressionPattern))
+                {
+                    System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), expressionPattern);
+                    Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
+                    int start2 = start + System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), expressionPattern)[0].Length;
+                    this.codeListArray[this.codeListArray.Length - 1] = input.Substring(start, start2 - start).Trim();
+                    start = start2;
+                    this.resultString += ";";
 
                 }
                 else
