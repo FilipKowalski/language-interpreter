@@ -15,6 +15,8 @@ namespace InterpretScript.parser
         string forPattern = @"^\Afor\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
         string whilePattern = @"^\Awhile\([A-Za-z0-9=;+\-<>!\s]*\)\{[A-Za-z0-9=;+\-\s]*\}";
         string expressionPattern = @"^[A-Za-z0-9=\s+\-]*;{1,1}";
+        string printPattern = @"^\Aprint\([A-Za-z0-9=\s+\-""]*\)";
+        string printlPattern = @"^\Aprintl\([A-Za-z0-9=\s+\-""]*\)";
 
         string input;
         string resultString = "";
@@ -74,6 +76,24 @@ namespace InterpretScript.parser
                     this.codeListArray[this.codeListArray.Length - 1] = input.Substring(start, start2 - start);
                     start = start2;
                     this.resultString += ";";
+
+                }
+                else if (System.Text.RegularExpressions.Regex.IsMatch(input.Substring(start, input.Length - start), printPattern))
+                {
+                    System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), printPattern);
+                    Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), printPattern)[0].Length;
+                    this.resultString += "print";
+
+                }
+                else if (System.Text.RegularExpressions.Regex.IsMatch(input.Substring(start, input.Length - start), printlPattern))
+                {
+                    System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(input.Substring(start, input.Length - start), printlPattern);
+                    Array.Resize(ref this.codeListArray, this.codeListArray.Length + 1);
+                    this.codeListArray[this.codeListArray.Length - 1] = result.Groups[0].Value;
+                    start += System.Text.RegularExpressions.Regex.Matches(input.Substring(start, input.Length - start), printlPattern)[0].Length;
+                    this.resultString += "printl";
 
                 }
                 else
