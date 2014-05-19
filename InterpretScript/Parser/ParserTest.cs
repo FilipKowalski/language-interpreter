@@ -13,6 +13,44 @@ namespace InterpretScript.parser
 
         }
 
+        public bool CheckFunctionFor(string value)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"for\(i=[0-9]+; i[<>][0-9]+; i[\+\-][\+\-]\)\{.*\}"))
+                return true;
+            else
+                return false;
+        }
+
+        public string GetFirstAttributeFor(string value)
+        {
+            value = value.Replace("\r", "");
+            value = value.Replace(" ", "");
+            System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), @"=[0-9]+;");
+            return result.Groups[0].Value.Substring(1, result.Length - 2);
+        }
+
+        public string GetSecondAttributeFor(string value)
+        {
+            value = value.Replace("\r", "");
+            value = value.Replace(" ", "");
+            System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), @"[<>][0-9]+;");
+            return result.Groups[0].Value.Substring(1, result.Length - 2);
+        }
+
+        public string GetThirdAttribute(string value)
+        {
+            value = value.Replace("\r", "");
+            value = value.Replace(" ", "");
+            System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), @"[\+\-][\+\-]\)");
+            return result.Groups[0].Value.Substring(0, result.Length - 2);
+        }
+
+        public string GetSourceFor(string value)
+        {
+            System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), @"{.*}");
+            return result.Groups[0].Value.Substring(1, result.Length - 2);
+        }
+
         public bool CheckPrintText(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"print[ ]*\( *"+(char)34+@".+"+(char)34+@" *\)"))

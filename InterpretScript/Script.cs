@@ -12,6 +12,7 @@ namespace InterpretScript
     {
         string Result;
         string Source;
+        List<Variables> ListVariables = new List<Variables>();
 
         public Script()
         {
@@ -26,60 +27,72 @@ namespace InterpretScript
             }
         }
 
-        public void RunScript(string Source)
+        string RunCode(string Source)
         {
-            this.Source = Source;
-            this.Result = string.Empty;
+            string Result = string.Empty;
 
-            //this.Source = "int a = 5;\nint b = 2;\nint c = a + b;print(c);";
-
-            AdvancedParser2 Parser = new AdvancedParser2(Source);
+            //AdvancedParser2 Parser = new AdvancedParser2(Source);
             //List<string> ListString = Parser.GetListSource();
-            List<Variables> ListVariables = new List<Variables>();
+            
             ParserVariables parserVariables = new ParserVariables(ListVariables);
 
             ParserTest ParserT = new ParserTest();
             List<string> ListString = new List<string>();
-            ListString.Add("  int   a   =   5;");
-            ListString.Add(" int   b   =   2;");
-            ListString.Add("   printl  (  \"   tekst   \"  )  ;  ");
-            ListString.Add("   printl  (  \"   a+b  \"  )  ;  ");
-            ListString.Add("  printl   (  a   )  ;  ");
-            ListString.Add("    a    =   6   ;  ");
-            ListString.Add("printl  (  a  )    ;  ");
-            ListString.Add("   a   =   a   +   b   ;  ");
-            ListString.Add("  printl   (  a   )   ;");
+            ListString.Add(Source);
 
-            foreach(var list in ListString)
+            foreach (var list in ListString)
             {
-                if(ParserT.CheckPrintText(list))
+                if (ParserT.CheckFunctionFor(list))
                 {
-                    this.Result += ParserT.GetPrintText(list);
+                    int From = Convert.ToInt32(ParserT.GetFirstAttributeFor(list));
+                    int To = Convert.ToInt32(ParserT.GetSecondAttributeFor(list));
+                    int Inc = Convert.ToInt32(ParserT.GetThirdAttribute(list)+"1");
+                    bool less = true;
+                    string forSource = ParserT.GetSourceFor(list);
+                    
+                    if(less)
+                    {
+                        for (int i = From; i > To; i = i + Inc)
+                        {
+                            Result += RunCode(forSource);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = From; i < To; i = i + Inc)
+                        {
+                            Result += RunCode(forSource);
+                        }
+                    }
                 }
-                else if(ParserT.CheckPrintVariables(list))
+                else if (ParserT.CheckPrintText(list))
                 {
-                    string varT = ParserT.GetPrintVariables(list);
-                    this.Result += ListVariables.Single(i => i.Name == varT).Value;
-                }
-                else if (ParserT.CheckPrintlText(list))
-                {
-                    this.Result += ParserT.GetPrintText(list)+"\n";
+                    Result += ParserT.GetPrintText(list);
                 }
                 else if (ParserT.CheckPrintVariables(list))
                 {
                     string varT = ParserT.GetPrintVariables(list);
-                    this.Result += ListVariables.Single(i => i.Name == varT).Value;
+                    Result += ListVariables.Single(i => i.Name == varT).Value;
+                }
+                else if (ParserT.CheckPrintlText(list))
+                {
+                    Result += ParserT.GetPrintText(list) + "\n";
+                }
+                else if (ParserT.CheckPrintVariables(list))
+                {
+                    string varT = ParserT.GetPrintVariables(list);
+                    Result += ListVariables.Single(i => i.Name == varT).Value;
                 }
                 else if (ParserT.CheckPrintlVariables(list))
                 {
                     string varT = ParserT.GetPrintVariables(list);
-                    this.Result += ListVariables.Single(i => i.Name == varT).Value+"\n";
+                    Result += ListVariables.Single(i => i.Name == varT).Value + "\n";
                 }
-                else if(ParserT.CheckCreateVariable(list))
+                else if (ParserT.CheckCreateVariable(list))
                 {
                     parserVariables.ParseNewVariables(ParserT.GetCreateVariable(list));
                 }
-                else if(ParserT.CheckAttributeVariable(list))
+                else if (ParserT.CheckAttributeVariable(list))
                 {
                     parserVariables.ParseVariables(ParserT.GetAttributeVariable(list));
 
@@ -90,6 +103,33 @@ namespace InterpretScript
                     ListVariables.Single(i => i.Name == getName).Value = exp.getValue().ToString();
                 }
             }
+
+            return Result;
+        }
+
+        public void RunScript(string Source)
+        {
+            this.Source = Source;
+            this.Result = string.Empty;
+
+            List<Variables> ListVariables = new List<Variables>();
+
+            this.Result += RunCode("for(i=5; i>0; i--){printl(\"tekst\");}");
+            
+            //ParserVariables parserVariables = new ParserVariables(ListVariables);
+
+            //ParserTest ParserT = new ParserTest();
+            //List<string> ListString = new List<string>();
+            //ListString.Add("  int   a   =   5;");
+            //ListString.Add(" int   b   =   2;");
+            //ListString.Add("   printl  (  \"   tekst   \"  )  ;  ");
+            //ListString.Add("   printl  (  \"   a+b  \"  )  ;  ");
+            //ListString.Add("  printl   (  a   )  ;  ");
+            //ListString.Add("    a    =   6   ;  ");
+            //ListString.Add("printl  (  a  )    ;  ");
+            //ListString.Add("   a   =   a   +   b   ;  ");
+            //ListString.Add("  printl   (  a   )   ;");
+            //ListString.Add("for(i=0; i<3; i++){println(\"tekst\");}");
         }
     }
 }
