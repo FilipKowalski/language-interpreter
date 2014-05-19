@@ -29,6 +29,16 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
 
+        public bool GetLessAttributeFor(string value)
+        {
+            value = value.Replace("\r", "");
+            value = value.Replace(" ", "");
+            if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"<[0-9]+;"))
+                return true;
+            else
+                return false;
+        }
+
         public string GetSecondAttributeFor(string value)
         {
             value = value.Replace("\r", "");

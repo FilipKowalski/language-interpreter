@@ -47,19 +47,19 @@ namespace InterpretScript
                     int From = Convert.ToInt32(ParserT.GetFirstAttributeFor(list));
                     int To = Convert.ToInt32(ParserT.GetSecondAttributeFor(list));
                     int Inc = Convert.ToInt32(ParserT.GetThirdAttribute(list)+"1");
-                    bool less = true;
+                    bool less = ParserT.GetLessAttributeFor(list);
                     string forSource = ParserT.GetSourceFor(list);
                     
                     if(less)
                     {
-                        for (int i = From; i > To; i = i + Inc)
+                        for (int i = From; i < To; i = i + Inc)
                         {
                             Result += RunCode(forSource);
                         }
                     }
                     else
                     {
-                        for (int i = From; i < To; i = i + Inc)
+                        for (int i = From; i > To; i = i + Inc)
                         {
                             Result += RunCode(forSource);
                         }
