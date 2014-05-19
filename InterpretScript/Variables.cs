@@ -6,10 +6,23 @@ using System.Threading.Tasks;
 
 namespace InterpretScript
 {
+    /// <summary>
+    /// Class abstract for Variables.
+    /// </summary>
     public abstract class Variables
     {
+        /// <summary>
+        /// Abstract string Name.
+        /// </summary>
         public abstract string Name { get; set; }
+        /// <summary>
+        /// Abstract string Value.
+        /// </summary>
         public abstract string Value { get; set; }
+        /// <summary>
+        /// Abstract string type of variables.
+        /// </summary>
+        /// <returns>String type.</returns>
         public abstract string GetType();
     }
 
@@ -18,14 +31,19 @@ namespace InterpretScript
     /// </summary>
     class INT : Variables
     {
+        /// <summary>
+        /// String name of Variables.
+        /// </summary>
         public override string Name { get; set; }
+        /// <summary>
+        /// String value of Variables.
+        /// </summary>
         public override string Value { get; set; }
 
         /// <summary>
         /// Constructor INT
         /// </summary>
-        /// <param name="Name"></param>
-        /// <returns></returns>
+        /// <param name="Name">Name for Variables</param>
         public INT(string Name) 
         { 
             this.Name = Name;
@@ -35,15 +53,18 @@ namespace InterpretScript
         /// <summary>
         /// Constructor INT
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="Value"></param>
-        /// <returns></returns>
+        /// <param name="Name">Name for Variables</param>
+        /// <param name="Value">Value for Variables</param>
         public INT(string Name, string Value) 
         { 
             this.Name = Name; 
             this.Value = Value; 
         }
 
+        /// <summary>
+        /// Type of Variables.
+        /// </summary>
+        /// <returns>String type.</returns>
         public override string GetType()
         {
             return "int";
@@ -55,21 +76,40 @@ namespace InterpretScript
     /// </summary>
     public class BOOL : Variables
     {
+        /// <summary>
+        /// String name of Variables.
+        /// </summary>
         public override string Name { get; set; }
+        /// <summary>
+        /// String value of Variables.
+        /// </summary>
         public override string Value { get; set; }
 
+        /// <summary>
+        /// Constructor BOOL
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
         public BOOL(string Name) 
         { 
             this.Name = Name;
             this.Value = string.Empty;
         }
 
+        /// <summary>
+        /// Constructor DOUBLE
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
+        /// <param name="Value">Value for Variables</param>
         public BOOL(string Name, string Value) 
         { 
             this.Name = Name; 
             this.Value = Value; 
         }
 
+        /// <summary>
+        /// Type of Variables.
+        /// </summary>
+        /// <returns>String type.</returns>
         public override string GetType()
         {
             return "bool";
@@ -81,21 +121,40 @@ namespace InterpretScript
     /// </summary>
     public class DOUBLE : Variables
     {
+        /// <summary>
+        /// String name of Variables.
+        /// </summary>
         public override string Name { get; set; }
+        /// <summary>
+        /// String value of Variables.
+        /// </summary>
         public override string Value { get; set; }
 
-        public DOUBLE(string Name)
-        {
+        /// <summary>
+        /// Constructor DOUBLE
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
+        public DOUBLE(string Name) 
+        { 
             this.Name = Name;
             this.Value = string.Empty;
         }
 
-        public DOUBLE(string Name, string Value)
-        {
-            this.Name = Name;
-            this.Value = Value;
+        /// <summary>
+        /// Constructor DOUBLE
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
+        /// <param name="Value">Value for Variables</param>
+        public DOUBLE(string Name, string Value) 
+        { 
+            this.Name = Name; 
+            this.Value = Value; 
         }
 
+        /// <summary>
+        /// Type of Variables.
+        /// </summary>
+        /// <returns>String type.</returns>
         public override string GetType()
         {
             return "double";
@@ -107,21 +166,40 @@ namespace InterpretScript
     /// </summary>
     public class FLOAT : Variables
     {
+        /// <summary>
+        /// String name of Variables.
+        /// </summary>
         public override string Name { get; set; }
+        /// <summary>
+        /// String value of Variables.
+        /// </summary>
         public override string Value { get; set; }
 
-        public FLOAT(string Name)
-        {
+        /// <summary>
+        /// Constructor FLOAT
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
+        public FLOAT(string Name) 
+        { 
             this.Name = Name;
             this.Value = string.Empty;
         }
 
-        public FLOAT(string Name, string Value)
-        {
-            this.Name = Name;
-            this.Value = Value;
+        /// <summary>
+        /// Constructor FLOAT
+        /// </summary>
+        /// <param name="Name">Name for Variables</param>
+        /// <param name="Value">Value for Variables</param>
+        public FLOAT(string Name, string Value) 
+        { 
+            this.Name = Name; 
+            this.Value = Value; 
         }
 
+        /// <summary>
+        /// Type of Variables.
+        /// </summary>
+        /// <returns>String type.</returns>
         public override string GetType()
         {
             return "float";

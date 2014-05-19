@@ -112,42 +112,9 @@ namespace InterpretScript
             this.Source = Source;
             this.Result = string.Empty;
 
-<<<<<<< HEAD
             this.ListVariables = new List<Variables>();
-=======
-            AdvancedParser2 Parser = new AdvancedParser2(Source);
-            this.Result = Parser.getResults();
-
-
-            /*List<Variables> ListVariables = new List<Variables>();
->>>>>>> d2ea53c808fdc7cc425d111f9e32b73f7bafe619
 
             this.Result += RunCode(Source);
-
-<<<<<<< HEAD
-            //this.Result += RunCode("for(i=0; i<5; i++) {printl(\"tekst\"); }");
-            //this.Result += RunCode("  int   a   =   5;");
-            //this.Result += RunCode(" int   b   =   2;");
-            //this.Result += RunCode("   printl  (  \"   tekst   \"  )  ;  ");
-            //this.Result += RunCode("   printl  (  \"   a+b  \"  )  ;  ");
-            //this.Result += RunCode("  printl   (  a   )  ;  ");
-            //this.Result += RunCode("    a    =   6   ;  ");
-            //this.Result += RunCode("printl  (  a  )    ;  ");
-            //this.Result += RunCode("   a   =   a   +   b   ;  ");
-            //this.Result += RunCode("  printl   (  a   )   ;");
-            //this.Result += RunCode("for(i=3; i>0; i--){printl(\"tekst\");}");
-=======
-            this.Result += RunCode("  int   a   =   5;");
-            this.Result += RunCode(" int   b   =   2;");
-            this.Result += RunCode("   printl  (  \"   tekst   \"  )  ;  ");
-            this.Result += RunCode("   printl  (  \"   a+b  \"  )  ;  ");
-            this.Result += RunCode("  printl   (  a   )  ;  ");
-            this.Result += RunCode("    a    =   6   ;  ");
-            this.Result += RunCode("printl  (  a  )    ;  ");
-            this.Result += RunCode("   a   =   a   +   b   ;  ");
-            this.Result += RunCode("  printl   (  a   )   ;");
-            this.Result += RunCode("for(i=3; i>0; i--){printl(\"tekst\");}");*/
->>>>>>> d2ea53c808fdc7cc425d111f9e32b73f7bafe619
         }
     }
 }

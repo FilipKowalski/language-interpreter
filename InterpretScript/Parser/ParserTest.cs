@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace InterpretScript.parser
 {
+    /// <summary>
+    /// Class Parser Code for test with code.
+    /// </summary>
     class ParserTest
     {
+        /// <summary>
+        /// Constructor ParserTest
+        /// </summary>
         public ParserTest()
         {
 
         }
 
+        /// <summary>
+        /// Check function for.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckFunctionFor(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"for\([A-Za-z]+=[0-9]+; [A-Za-z][<>][0-9]+; [A-Za-z]+[\+\-][\+\-]\)"))
@@ -21,6 +32,11 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get first attribute for.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetFirstAttributeFor(string value)
         {
             value = value.Replace("\r", "");
@@ -29,6 +45,11 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
 
+        /// <summary>
+        /// Get parameter control attribute for.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>Boolean value attribute.</returns>
         public bool GetLessAttributeFor(string value)
         {
             value = value.Replace("\r", "");
@@ -39,6 +60,11 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get second attribute for.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetSecondAttributeFor(string value)
         {
             value = value.Replace("\r", "");
@@ -47,6 +73,11 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
 
+        /// <summary>
+        /// Get third attribute for.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetThirdAttribute(string value)
         {
             value = value.Replace("\r", "");
@@ -55,6 +86,11 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(0, result.Length - 2);
         }
 
+        /// <summary>
+        /// Get source code attribute for.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetSourceFor(string value)
         {
             value = value.Replace("\r", "");
@@ -63,6 +99,11 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
 
+        /// <summary>
+        /// Check function print.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckPrintText(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"print[ ]*\( *"+(char)34+@".+"+(char)34+@" *\)"))
@@ -71,12 +112,22 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get text to show without new line.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetPrintText(string value)
         {
             System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), (char)34+@".+"+(char)34);
             return result.Groups[0].Value.Substring(1, result.Length-2);
         }
 
+        /// <summary>
+        /// Check function printl.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckPrintlText(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"printl[ ]*\( *" + (char)34 + @".+" + (char)34 + @" *\)"))
@@ -85,12 +136,22 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get text to show with new line.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetPrintlText(string value)
         {
             System.Text.RegularExpressions.Match result = System.Text.RegularExpressions.Regex.Match(value.Substring(0), (char)34 + @".+" + (char)34);
             return result.Groups[0].Value.Substring(1, result.Length - 2)+"\n";
         }
 
+        /// <summary>
+        /// Check function create variable.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckCreateVariable(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"int .+"))
@@ -104,11 +165,21 @@ namespace InterpretScript.parser
             return false;
         }
 
+        /// <summary>
+        /// Get string to make a new variable.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetCreateVariable(string value)
         {
             return value.Substring(0, value.Length - 1);
         }
 
+        /// <summary>
+        /// Check function print variable.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckPrintVariables(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"print[ ]*\(.+\)"))
@@ -117,6 +188,11 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get text of variable to show without new line.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetPrintVariables(string value)
         {
             value = value.Replace("\r", "");
@@ -125,6 +201,11 @@ namespace InterpretScript.parser
             return result.Groups[0].Value.Substring(1, result.Length - 2);
         }
 
+        /// <summary>
+        /// Check function printl variable.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckPrintlVariables(string value)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(value.Substring(0), @"printl[ ]*\(.+\)"))
@@ -133,6 +214,11 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Check attribute variable.
+        /// </summary>
+        /// <param name="value">String for test.</param>
+        /// <returns>Value boolean if it's correct.</returns>
         public bool CheckAttributeVariable(string value)
         {
             value = value.Replace("\r", "");
@@ -143,6 +229,11 @@ namespace InterpretScript.parser
                 return false;
         }
 
+        /// <summary>
+        /// Get attribute of variable.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetAttributeVariable(string value)
         {
             value = value.Replace("\r", "");
@@ -150,6 +241,11 @@ namespace InterpretScript.parser
             return value.Substring(0, value.Length - 1);
         }
 
+        /// <summary>
+        /// Get name of variable.
+        /// </summary>
+        /// <param name="value">String for looking for attribute.</param>
+        /// <returns>String value attribute.</returns>
         public string GetNameVariable(string value)
         {
             value = value.Replace("\r", "");
