@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace InterpretScript.parser
 {
+    /// <summary>
+    /// Class Parser variables for test with code.
+    /// </summary>
     class ParserVariables
     {
         char[] Tab = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '.' };
@@ -22,11 +25,20 @@ namespace InterpretScript.parser
         }
 
         List<Variables> ListVariables { get; set; }
+
+        /// <summary>
+        /// Constructor ParserVariables.
+        /// </summary>
+        /// <param name="ListVariables">List of class variables.</param>
         public ParserVariables(List<Variables> ListVariables)
         {
             this.ListVariables = ListVariables;
         }
 
+        /// <summary>
+        /// Function for parser and create new variable.
+        /// </summary>
+        /// <param name="input">String with declaration variable.</param>
         public void ParseNewVariables(string input)
         {
             string Type = string.Empty;
@@ -130,6 +142,10 @@ namespace InterpretScript.parser
             }
         }
 
+        /// <summary>
+        /// Function for parser variable and work it.
+        /// </summary>
+        /// <param name="input">String with variable.</param>
         public void ParseVariables(string input)
         {
             string Type = "int";

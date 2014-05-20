@@ -14,11 +14,18 @@ namespace InterpretScript
         string Source;
         List<Variables> ListVariables;
 
+        /// <summary>
+        /// Constructor Script.
+        /// </summary>
         public Script()
         {
 
         }
 
+        /// <summary>
+        /// Check function for.
+        /// </summary>
+        /// <returns>String effect a finish with code.</returns>
         public string GetResult
         {
             get
@@ -107,6 +114,10 @@ namespace InterpretScript
             return Result;
         }
 
+        /// <summary>
+        /// Start work with code.
+        /// </summary>
+        /// <param name="Source">String for run code.</param>
         public void RunScript(string Source)
         {
             this.Source = Source;
